@@ -1,5 +1,6 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="alwe.ProdOrderConf.controller.Operations"
-	xmlns:html="http://www.w3.org/1999/xhtml">
+	xmlns:html="http://www.w3.org/1999/xhtml"  xmlns:semantic="sap.m.semantic">
+	<semantic:MasterPage id="page" title="Operations" navButtonPress="onNavBack" showNavButton="true">
 	<List
 		id="idOperationList"
 		selectionChange="onSelect"
@@ -9,4 +10,5 @@
 			description="{Description}" 
 			/>
 	</List>
+</semantic:MasterPage>
 </mvc:View>

@@ -84,6 +84,12 @@
 				"uri": "model/searchHelp.json",
 				"preload": true
 			},
+			"selection": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/selection.json",
+				"preload": true
+			},
 			"operData": {
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {},

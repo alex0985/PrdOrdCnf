@@ -99,25 +99,11 @@ sap.ui.define([
 
 			var productionOrderNumber = this.byId("idPrdOrder").getValue();
 			if (productionOrderNumber !== "") {
-				var filter = [];
-				var filterOrder = new sap.ui.model.Filter("OrderNumber", sap.ui.model.FilterOperator.EQ, productionOrderNumber);
-				filter.push(filterOrder);
+				//Save variable in global Model SEARCH
+				var oModel = this.getView().getModel("selection");
+				oModel.setProperty("/order", productionOrderNumber);
 
-				var that = this;
-
-				this.getView().getModel().read("/OperationSet", {
-					filters: filter,
-					format: "json",
-					success: function(oData, response) {
-						that.getRouter().navTo("oper", {
-							orderId: productionOrderNumber
-						});
-					},
-					error: function() {
-						MSGToast.show("Error");
-					}
-				});
-
+				this.getRouter().navTo("oper", { orderId: productionOrderNumber });
 			} else {
 				MSGToast.show("Enter Order Number");
 			}
