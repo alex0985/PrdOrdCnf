@@ -11,25 +11,23 @@ sap.ui.define([
 		 * @memberOf alwe.ProdOrderConf.view.Operations
 		 */
 			onInit: function() {
-				var oModel = this.getOwnerComponent().getModel();
-				var oList = this.getView().byId("idOperationList");
-				var oTemplate = this.byId("idListItemTemplate");
-				oList.setModel(oModel);
-				oList.bindItems("/OperationSet",oTemplate);
+				
 			},
 			onSelect: function(oEvent){
-				debugger;
-			}
 
-
+			},
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).
 		 * @memberOf alwe.ProdOrderConf.view.Operations
 		 */
-		//	onBeforeRendering: function() {
-		//
-		//	},
+			onBeforeRendering: function() {
+				var oModel = this.getOwnerComponent().getModel();
+				var oList = this.getView().byId("idOperationList");
+				var oTemplate = this.byId("idListItemTemplate");
+				oList.setModel(oModel);
+				oList.bindItems("/OperationSet",oTemplate);
+		}
 
 		/**
 		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
