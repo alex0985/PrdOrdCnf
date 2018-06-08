@@ -5,10 +5,31 @@
 		id="idOperationList"
 		selectionChange="onSelect"
 		mode="SingleSelectMaster">
-		<StandardListItem id="idListItemTemplate"
-			title="{OperationNumber}"
-			description="{Description}" 
-			/>
+		<ObjectListItem id="idListItemTemplate"
+			title="{OrderNumber}"
+			number="{Quantity}"
+			numberUnit="{Unit}">
+			<attributes>
+				<ObjectAttribute
+					text="{OperationNumber}" ></ObjectAttribute>
+				<ObjectAttribute
+					text="{Description}" ></ObjectAttribute>
+			</attributes>
+			<firstStatus>
+				<ObjectStatus 
+				text="{path: 'LateSchedFinDateExec',
+					type: 'sap.ui.model.type.DateTime',
+					formatOptions: { style : 'medium'}}"
+				state="{= ${LateSchedFinDateExec}>= Date.now() ? 'Success' : 'Error'}"
+					></ObjectStatus>
+			</firstStatus>
+			<secondStatus>
+				<ObjectStatus 
+					text="{path: 'EarlSchedStartDateExec',
+					type: 'sap.ui.model.type.DateTime',
+					formatOptions: { style : 'medium'}}"></ObjectStatus>
+			</secondStatus>
+		</ObjectListItem>
 	</List>
 </semantic:MasterPage>
 </mvc:View>
