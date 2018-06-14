@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function(Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/Device"
+], function(Controller, Device) {
 	"use strict";
 
 	return Controller.extend("alwe.ProdOrderConf.controller.Operations", {
@@ -13,6 +14,9 @@ sap.ui.define([
 			onInit: function(oEvent) {
 			},
 			onSelect: function(oEvent){
+			//	var oSelected = 
+				var oRouter = this.getOwnerComponent().getRouter();
+				this._showDetail(oEvent.getParameter("listItem"), oRouter);
 			},
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
@@ -56,6 +60,16 @@ sap.ui.define([
 		 * @memberOf alwe.ProdOrderConf.view.Operations
 		 */
 			onExit: function() {
+			},
+			
+			_showDetail: function(oItem, oRouter){
+				var bReplace = !Device.system.phone;
+				var oModelSelection = this.getView().getModel("selection");
+				oModelSelection.setProperty("/opPath", oItem.getBindingContextPath());
+				
+				oRouter.navTo("object", {
+					objectId : oItem.getBindingContext().getProperty("RoutingNo") +  oItem.getBindingContext().getProperty("Counter")
+				}, bReplace);
 			}
 	});
 

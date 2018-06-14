@@ -10,10 +10,8 @@
 			number="{Quantity}"
 			numberUnit="{Unit}">
 			<attributes>
-				<ObjectAttribute
-					text="{OperationNumber}" ></ObjectAttribute>
-				<ObjectAttribute
-					text="{Description}" ></ObjectAttribute>
+				<ObjectAttribute text="{OperationNumber}" ></ObjectAttribute>
+				<ObjectAttribute text="{Description}" ></ObjectAttribute>
 			</attributes>
 			<firstStatus>
 				<ObjectStatus 
