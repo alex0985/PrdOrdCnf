@@ -66,6 +66,7 @@ sap.ui.define([
 				var bReplace = !Device.system.phone;
 				var oModelSelection = this.getView().getModel("selection");
 				oModelSelection.setProperty("/opPath", oItem.getBindingContextPath());
+				oModelSelection.setProperty("/ConfNo", oItem.getBindingContext().getProperty("ConfNo"));
 				
 				oRouter.navTo("object", {
 					objectId : oItem.getBindingContext().getProperty("RoutingNo") +  oItem.getBindingContext().getProperty("Counter")
