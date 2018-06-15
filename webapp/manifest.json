@@ -129,7 +129,7 @@
 					"pattern": "",
 					"name": "master",
 					"target": [
-						"object",
+						"DetailBlank",
 						"master"
 					]
 				},
@@ -266,6 +266,8 @@
 				},
 				"DetailBlank": {
 					"viewType": "XML",
+					"viewPath": "alwe.ProdOrderConf.view",
+					"controlAggregation": "detailPages",
 					"viewName": "DetailBlank"
 				}
 			}

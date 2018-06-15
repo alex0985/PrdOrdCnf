@@ -1,6 +1,16 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="alwe.ProdOrderConf.controller.Operations"
 	xmlns:html="http://www.w3.org/1999/xhtml"  xmlns:semantic="sap.m.semantic">
 	<semantic:MasterPage id="page" title="Operations" navButtonPress="onNavBack" showNavButton="true">
+
+		<semantic:subHeader>
+			<Bar id="headerBar">
+				<contentMiddle>
+					<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%"
+						search="onSearch"></SearchField>
+				</contentMiddle>
+			</Bar>
+		</semantic:subHeader>
+		
 	<List
 		id="idOperationList"
 		selectionChange="onSelect"

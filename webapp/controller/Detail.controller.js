@@ -15,6 +15,12 @@ sap.ui.define([
 		/* lifecycle methods                                           */
 		/* =========================================================== */
 		onInit: function() {
+			
+			var order = this.getOwnerComponent().getModel("selection").getProperty("/order");
+			if(order === ""){
+				this.getRouter().navTo("master");
+			}
+			
 			var oMessageProcessor = new sap.ui.core.message.ControlMessageProcessor();
 			var oMessageManager = sap.ui.getCore().getMessageManager();
 			oMessageManager.registerMessageProcessor(oMessageProcessor);

@@ -4,11 +4,19 @@
 		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
 
-			<Panel expandable="true" expanded="false" headerText="Production Order" width="auto" class="sapUiResponsiveMargin">
-				<f:SimpleForm editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
-					adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
-					singleContainerFullSize="true">
+			<Panel expandable="true" expanded="false" headerText="{i18n>ProdOrder}" width="auto" class="sapUiResponsiveMargin">
+				<f:SimpleForm editable="false" layout="ResponsiveGridLayout" 
+					emptySpanXL="0" emptySpanL="0" emptySpanM="7" emptySpanS="0"
+					labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="2"
+					columnsXL="1" columnsL="1" columnsM="1">
 					<f:content>
+						<Label text="Progress"></Label>
+						<ProgressIndicator
+						class="sapUiSmallMarginBottom"
+						percentValue="50"
+						showValue="false"
+						state="Error"
+						displayOnly="true" />
 						<Label text="{i18n>ProductionOrder}"></Label>
 						<Text text="{OrderNumber}"></Text>
 						<Label text="{i18n>Material}"></Label>
@@ -21,19 +29,15 @@
 						<Text text="{MrpController}"></Text>
 						<Label text="{i18n>SystemStatus}"></Label>
 						<Text text="{SystemStatus}"></Text>
-						<ProgressIndicator
-						class="sapUiSmallMarginBottom"
-						percentValue="50"
-						showValue="false"
-						state="Error"
-						displayOnly="true" />
 					</f:content>
 				</f:SimpleForm>
 			</Panel>
-			<Panel expandable="true" expanded="true" headerText="Operation" width="auto" class="sapUiResponsiveMargin">
-				<f:SimpleForm id="operationData" editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
-					adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
-					singleContainerFullSize="false">
+			<Panel expandable="true" expanded="true" headerText="{i18n>OperationNumber}" width="auto" class="sapUiResponsiveMargin">
+				<f:SimpleForm id="operationData" editable="false" layout="ResponsiveGridLayout"
+					adjustLabelSpan="false"
+					emptySpanXL="0" emptySpanL="0" emptySpanM="7" emptySpanS="0"
+					labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="2"
+					columnsXL="1" columnsL="1" columnsM="1">
 					<f:content>
 						<Label text="{i18n>ConfNo}"></Label>
 						<Text text="{ConfNo}"></Text>
@@ -50,7 +54,10 @@
 					</f:content>
 				</f:SimpleForm>
 			</Panel>
-			<f:SimpleForm title="Actions">
+			<f:SimpleForm title="Actions" layout="ResponsiveGridLayout" 
+			columnsXL="3" columnsL="3" columnsM="3"
+			labelSpanXL="2" labelSpanL="2" labelSpanM="4" labelSpanS="2"
+			>
 				<Button text="Start" press="onPressStartButton" class="ownButtonClass" type="Accept"></Button>
 				<Button text="Pause" press="onPressPauseButton" class="ownButtonClass"></Button>
 				<Button text="Finish" press="onPressFinishButton" class="ownButtonClass" type="Reject"></Button>

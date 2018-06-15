@@ -1,0 +1,9 @@
+<mvc:View controllerName="alwe.ProdOrderConf.controller.BaseController" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+xmlns:semantic="sap.m.semantic"	xmlns:f="sap.ui.layout.form" xmlns:footerbar="sap.ushell.ui.footerbar">
+	
+	<semantic:DetailPage id="blank" title="" navButtonPress="onNavBack" showNavButton="{device>/system/phone}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		
+		
+	</semantic:DetailPage>
+</mvc:View>

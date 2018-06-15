@@ -1,7 +1,7 @@
 <mvc:View controllerName="alwe.ProdOrderConf.controller.Master" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m"
-	xmlns:ux="sap.uxap" xmlns:semantic="sap.m.semantic">
+	xmlns:f="sap.ui.layout.form" xmlns:ux="sap.uxap" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar">
 	<semantic:MasterPage id="page" title="Selection">
-<!--		<semantic:subHeader>
+		<!--		<semantic:subHeader>
 			<Bar id="headerBar">
 				<contentMiddle>
 					<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%"
@@ -9,67 +9,13 @@
 				</contentMiddle>
 			</Bar>
 		</semantic:subHeader>-->
-		<ux:ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true">
-			<ux:sections>
-				<ux:ObjectPageSection>
-					<ux:subSections>
-						<ux:ObjectPageSubSection>
-							<ux:blocks>
-								<Label text="{i18n>ProdOrder}" labelFor="idPrdOrder"></Label>
-								<Input type="Text" id="idPrdOrder" width="150px" showValueHelp="true" valueHelpRequest="onProductionOrderValueHelp"/>
-								<Button text="Read Operations" press="getProductionOrderData"></Button>
-							</ux:blocks>
-						</ux:ObjectPageSubSection>
-					</ux:subSections>
-				</ux:ObjectPageSection>
-			</ux:sections>
-		</ux:ObjectPageLayout>
-		
-		
-		
-		
-		
-		
-<!--		<semantic:content>
-			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>-->
-			<!-- For client side filtering add this to the items attribute: parameters: {operationMode: 'Client'}}" -->
-			<!--			<List
-				id="list"
-				items="{
-					path: '/OperationSet',
-					sorter: {
-						path: 'Description',
-						descending: false
-						},
-					groupHeaderFactory: '.createGroupHeader'
-				}"
-				busyIndicatorDelay="{masterView>/delay}"
-				noDataText="{masterView>/noDataText}"
-				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}"
-				growing="true"
-				growingScrollToLoad="true"
-				updateFinished="onUpdateFinished"
-				selectionChange="onSelectionChange">
-				<infoToolbar>
-					<Toolbar
-						active="true"
-						id="filterBar"
-						visible="{masterView>/isFilterBarVisible}"
-						press="onOpenViewSettings">
-						<Title
-							id="filterBarLabel"
-							text="{masterView>/filterBarLabel}" />
-					</Toolbar>
-				</infoToolbar>
-				<items>
-					<ObjectListItem
-						type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}"
-						press="onSelectionChange"
-						title="{Description}"
->
-					</ObjectListItem>
-				</items>
-			</List>-->
-<!--		</semantic:content> -->
+		<f:SimpleForm id="idSimpleFormMaster" editable="true" layout="ResponsiveGridLayout" 
+		columnsL="2" columnsXL="2" columnsM="2">
+			<f:content>
+				<Label text="{i18n>ProdOrder}" labelFor="idPrdOrder"></Label>
+				<Input type="Text" id="idPrdOrder" width="150px" showValueHelp="true" valueHelpRequest="onProductionOrderValueHelp"/>
+				<Button text="Read Operations" press="getProductionOrderData"></Button>
+			</f:content>
+		</f:SimpleForm>
 	</semantic:MasterPage>
 </mvc:View>
